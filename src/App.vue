@@ -1,26 +1,35 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="register" v-if="!registered">
+    <RegisterForm/>
+  </div>
+  <div v-else class="tweetBox">
+    <h2>Welcomjjgje {{ userData.name }}, write your first tweet</h2>
+  </div>
+  
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import RegisterForm from './components/RegisterForm.vue'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      userData : {},
+      registered: false
+    }
+  },
   components: {
-    HelloWorld
+    RegisterForm
+  },
+  created() {
+    console.log("hib");
+      if(localStorage.getItem("tweet_registered") === 'true') {
+        this.registered = true;
+      }
+      if(localStorage.getItem("tweet_registered_user")) {
+          this.userData = JSON.parse(localStorage.getItem("tweet_registered_user"));
+      }
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
