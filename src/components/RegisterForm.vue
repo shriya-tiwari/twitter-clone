@@ -22,10 +22,10 @@
         <button type="submit">Register</button>
     </form>
     <div v-if="error.length > 0">{{ error }}</div>
-  </template>
+</template>
   
-  <script>
-  export default {
+<script>
+export default {
     data() {
       return {
         userData: {},
@@ -50,17 +50,17 @@
         } else {
             this.error = "Please fill in all the required fields."
         }
-
+    
         localStorage.setItem("tweet_registered", true);
         localStorage.setItem("tweet_registered_user", JSON.stringify(this.userData));
-
+    
         this.name = "";
         this.email = "";
         this.password = "";
         this.$emit('registered');
       }
     }
-  };
-  </script>
+    };
+</script>
   
   
