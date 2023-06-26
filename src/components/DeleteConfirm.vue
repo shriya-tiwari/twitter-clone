@@ -9,46 +9,46 @@
         </div>
       </div>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    props: {
-      isOpen: {
-        type: Boolean,
-        required: true,
-      },
-    },
-    methods: {
-      cancelDelete() {
-        this.$emit('cancel');
-      },
-      confirmDelete() {
-        this.$emit('confirm');
-      },
-    },
-  };
-  </script>
-  
-  <style scoped>
-  .delete-popup {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  
-  .content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 400px;
-    text-align: center;
-  }
-  </style>
+</template>
+
+<script>
+export default {
+props: {
+  isOpen: {
+    type: Boolean,
+    required: true,
+  },
+},
+methods: {
+  cancelDelete() {
+    this.$emit('cancel');
+  },
+  confirmDelete() {
+    this.$emit('confirm');
+  },
+},
+};
+</script>
+
+<style scoped>
+.delete-popup {
+display: flex;
+align-items: center;
+justify-content: center;
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: rgba(0, 0, 0, 0.5);
+}
+
+.content {
+background-color: #fff;
+padding: 20px;
+border-radius: 8px;
+max-width: 400px;
+text-align: center;
+}
+</style>
   
